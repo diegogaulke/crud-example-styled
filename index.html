@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>Person CRUD Example</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body ng-app="crud">
+	<div class="panel panel-default" ng-controller="PersonController as person">
+		
+		<div class="panel-heading">
+			<h2 class="panel-title">Persons</h2>
+		</div>
+
+		<div class="panel-body">
+			<div class="form-horizontal">
+				<table class="table table-condensed">
+					<th>Name</th>
+					<th>Email</th>
+					<th>Action</th>
+					<tr ng-repeat="item in person.persons">
+						<td>{{item.personName}}</td>
+						<td>{{item.personEmail}}</td>
+						<td>
+							<button type="button" class="btn btn-danger" ng-click="person.removePerson(item)">Remove</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" ng-model="person.personName" />
+						</td>
+						<td>
+							<input type="text" ng-model="person.personEmail" />
+						</td>
+						<td>
+							<button type="button" class="btn btn-success" ng-click="person.addPerson()">Add</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="app.js"></script>
+	<script src="controller/person.controller.js"></script>
+</body>
+</html>
