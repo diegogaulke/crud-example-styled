@@ -24,6 +24,12 @@
 		vm.addPerson = addPerson;
 		vm.removePerson = removePerson;
 
+		/**
+			According to https://github.com/johnpapa/angular-styleguide#style-y035 
+			the logic of addPerson() and removePerson() should be in a service.
+			I prefer to leave the logic here for better understanding of the code.
+		**/
+		
 		function addPerson() {
 			vm.persons.push({personName: vm.personName, personEmail: vm.personEmail}	);
 			vm.personName = '';
@@ -33,7 +39,7 @@
 		function removePerson(person) {
 			var index = vm.persons.indexOf(person);
 			if (index > -1) {
-		    	vm.persons.splice(index, 1);
+				vm.persons.splice(index, 1);
 			}
 		}
 	}
